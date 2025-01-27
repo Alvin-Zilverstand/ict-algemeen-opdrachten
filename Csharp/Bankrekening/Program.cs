@@ -91,14 +91,16 @@ public class MainForm : Form
             Top = 20, 
             Left = 20, 
             Width = 200,
-            Font = new Font("Arial", 12, FontStyle.Bold)
+            Font = new Font("Arial", 12, FontStyle.Bold),
+            ForeColor = Color.DarkGreen
         };
         bedragTextBox = new TextBox() 
         { 
             Top = 50, 
             Left = 20, 
             Width = 200,
-            Font = new Font("Arial", 10)
+            Font = new Font("Arial", 10),
+            BackColor = Color.LightYellow
         };
         stortenButton = new Button() 
         { 
@@ -106,7 +108,8 @@ public class MainForm : Form
             Top = 80, 
             Left = 20,
             Width = 200,
-            Font = new Font("Arial", 10)
+            Font = new Font("Arial", 10),
+            BackColor = Color.LightBlue
         };
         opnemenButton = new Button() 
         { 
@@ -114,7 +117,8 @@ public class MainForm : Form
             Top = 110, 
             Left = 20,
             Width = 200,
-            Font = new Font("Arial", 10)
+            Font = new Font("Arial", 10),
+            BackColor = Color.LightCoral
         };
         transactieGeschiedenisButton = new Button() 
         { 
@@ -122,7 +126,8 @@ public class MainForm : Form
             Top = 140, 
             Left = 20,
             Width = 200,
-            Font = new Font("Arial", 10)
+            Font = new Font("Arial", 10),
+            BackColor = Color.LightGray
         };
 
         stortenButton.Click += StortenButton_Click;
@@ -138,6 +143,7 @@ public class MainForm : Form
         Text = "Bankrekening Beheer";
         Size = new Size(300, 250);
         StartPosition = FormStartPosition.CenterScreen;
+        BackColor = Color.WhiteSmoke;
     }
 
     private void StortenButton_Click(object sender, EventArgs e)
@@ -172,9 +178,11 @@ public class MainForm : Form
     {
         var transactieGeschiedenis = mijnRekening.GetTransactieGeschiedenis();
         string geschiedenis = "Transactiegeschiedenis:\n";
+        geschiedenis += "Datum\t\tBeschrijving\t\tBedrag\n";
+        geschiedenis += "---------------------------------------------\n";
         foreach (var transactie in transactieGeschiedenis)
         {
-            geschiedenis += $"{transactie.Datum}: {transactie.Beschrijving} - {transactie.Bedrag:C}\n";
+            geschiedenis += $"{transactie.Datum}\t{transactie.Beschrijving}\t\t{transactie.Bedrag:C}\n";
         }
         MessageBox.Show(geschiedenis);
     }
