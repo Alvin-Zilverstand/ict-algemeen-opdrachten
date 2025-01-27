@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 public class Bankrekening
@@ -58,7 +58,7 @@ public class Bankrekening
     }
 }
 
-public class Program
+public partial class Program
 {
     public static void Main(string[] args)
     {
