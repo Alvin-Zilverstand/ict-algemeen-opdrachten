@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\steen\\Desktop\\Alvin\\ict-algemeen-opdrachten\\Csharp\\Bankrekening\\Bankrekening.csproj": {}
+    "C:\\Users\\alvin\\Desktop\\coding\\ict-algemeen-opdrachten\\Csharp\\Bankrekening\\Bankrekening.csproj": {}
   },
   "projects": {
-    "C:\\Users\\steen\\Desktop\\Alvin\\ict-algemeen-opdrachten\\Csharp\\Bankrekening\\Bankrekening.csproj": {
+    "C:\\Users\\alvin\\Desktop\\coding\\ict-algemeen-opdrachten\\Csharp\\Bankrekening\\Bankrekening.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\steen\\Desktop\\Alvin\\ict-algemeen-opdrachten\\Csharp\\Bankrekening\\Bankrekening.csproj",
+        "projectUniqueName": "C:\\Users\\alvin\\Desktop\\coding\\ict-algemeen-opdrachten\\Csharp\\Bankrekening\\Bankrekening.csproj",
         "projectName": "Bankrekening",
-        "projectPath": "C:\\Users\\steen\\Desktop\\Alvin\\ict-algemeen-opdrachten\\Csharp\\Bankrekening\\Bankrekening.csproj",
-        "packagesPath": "C:\\Users\\steen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\steen\\Desktop\\Alvin\\ict-algemeen-opdrachten\\Csharp\\Bankrekening\\obj\\",
+        "projectPath": "C:\\Users\\alvin\\Desktop\\coding\\ict-algemeen-opdrachten\\Csharp\\Bankrekening\\Bankrekening.csproj",
+        "packagesPath": "C:\\Users\\alvin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alvin\\Desktop\\coding\\ict-algemeen-opdrachten\\Csharp\\Bankrekening\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\steen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alvin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

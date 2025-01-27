@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Gokspel")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29d74ade5109ae644fdc41b8e9c55195215f9822")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bba4b4c58158f29b6282c27b32041330896b7053")]
 [assembly: System.Reflection.AssemblyProductAttribute("Gokspel")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Gokspel")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

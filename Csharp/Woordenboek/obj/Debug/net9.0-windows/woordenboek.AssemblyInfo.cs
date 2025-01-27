@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Woordenboek")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("woordenboek")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+151b335fffec1045b419e67f8da49569466929cb")]
-[assembly: System.Reflection.AssemblyProductAttribute("Woordenboek")]
-[assembly: System.Reflection.AssemblyTitleAttribute("Woordenboek")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bba4b4c58158f29b6282c27b32041330896b7053")]
+[assembly: System.Reflection.AssemblyProductAttribute("woordenboek")]
+[assembly: System.Reflection.AssemblyTitleAttribute("woordenboek")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
