@@ -1,0 +1,15 @@
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Calc\bin\Debug\net9.0\Calc.exe
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Calc\bin\Debug\net9.0\Calc.deps.json
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Calc\bin\Debug\net9.0\Calc.runtimeconfig.json
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Calc\bin\Debug\net9.0\Calc.dll
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Calc\bin\Debug\net9.0\Calc.pdb
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Calc\obj\Debug\net9.0\Calc.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Calc\obj\Debug\net9.0\Calc.AssemblyInfoInputs.cache
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Calc\obj\Debug\net9.0\Calc.AssemblyInfo.cs
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Calc\obj\Debug\net9.0\Calc.csproj.CoreCompileInputs.cache
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Calc\obj\Debug\net9.0\Calc.sourcelink.json
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Calc\obj\Debug\net9.0\Calc.dll
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Calc\obj\Debug\net9.0\refint\Calc.dll
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Calc\obj\Debug\net9.0\Calc.pdb
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Calc\obj\Debug\net9.0\Calc.genruntimeconfig.cache
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Calc\obj\Debug\net9.0\ref\Calc.dll

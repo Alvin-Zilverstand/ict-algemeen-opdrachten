@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-#region Bankrekening Class
-// Class representing a bank account
 class Bankrekening
 {
-    public string Rekeningnummer { get; } // Account number
-    private decimal saldo; // Account balance
-    private List<Transactie> transacties; // List of transactions
+    public string Rekeningnummer { get; }
+    private decimal saldo;
+    private List<Transactie> transacties;
 
-    // Constructor to initialize account number and starting balance
     public Bankrekening(string rekeningnummer, decimal beginsaldo)
     {
         Rekeningnummer = rekeningnummer;
@@ -19,7 +16,6 @@ class Bankrekening
         transacties = new List<Transactie>();
     }
 
-    // Method to deposit money into the account with a description
     public void Storten(decimal bedrag, string beschrijving)
     {
         if (bedrag > 0)
@@ -33,7 +29,6 @@ class Bankrekening
         }
     }
 
-    // Method to withdraw money from the account with a description
     public void Opnemen(decimal bedrag, string beschrijving)
     {
         if (bedrag > 0 && bedrag <= saldo)
@@ -47,29 +42,23 @@ class Bankrekening
         }
     }
 
-    // Method to check the current balance
     public decimal ControleerSaldo()
     {
         return saldo;
     }
 
-    // Method to get the transaction history
     public List<Transactie> GetTransactieGeschiedenis()
     {
         return transacties;
     }
 }
-#endregion
 
-#region Transactie Class
-// Class representing a transaction
 class Transactie
 {
-    public decimal Bedrag { get; } // Transaction amount
-    public string Beschrijving { get; } // Transaction description
-    public DateTime Datum { get; } // Transaction date
+    public decimal Bedrag { get; }
+    public string Beschrijving { get; }
+    public DateTime Datum { get; }
 
-    // Constructor to initialize transaction details
     public Transactie(decimal bedrag, string beschrijving)
     {
         Bedrag = bedrag;
@@ -77,21 +66,17 @@ class Transactie
         Datum = DateTime.Now;
     }
 }
-#endregion
 
-#region MainForm Class
-// Main form for the application
 public class MainForm : Form
 {
-    private Bankrekening mijnRekening; // Bank account instance
-    private Label saldoLabel; // Label to display balance
-    private TextBox bedragTextBox; // TextBox to input amount
-    private TextBox beschrijvingTextBox; // TextBox to input transaction description
-    private Button stortenButton; // Button to deposit money
-    private Button opnemenButton; // Button to withdraw money
-    private Button transactieGeschiedenisButton; // Button to view transaction history
+    private Bankrekening mijnRekening;
+    private Label saldoLabel;
+    private TextBox bedragTextBox;
+    private TextBox beschrijvingTextBox;
+    private Button stortenButton;
+    private Button opnemenButton;
+    private Button transactieGeschiedenisButton;
 
-    // Constructor to initialize the form and its controls
     public MainForm()
     {
         mijnRekening = new Bankrekening("NL01BANK0123456789", 1000);
@@ -116,7 +101,7 @@ public class MainForm : Form
             BackColor = Color.White,
             ForeColor = Color.Black,
             BorderStyle = BorderStyle.FixedSingle,
-            PlaceholderText = "Aantal" // Placeholder text
+            PlaceholderText = "Aantal"
         };
         beschrijvingTextBox = new TextBox() 
         { 
@@ -127,7 +112,7 @@ public class MainForm : Form
             BackColor = Color.White,
             ForeColor = Color.Black,
             BorderStyle = BorderStyle.FixedSingle,
-            PlaceholderText = "Beschrijving" // Placeholder text
+            PlaceholderText = "Beschrijving"
         };
         stortenButton = new Button() 
         { 
@@ -135,7 +120,7 @@ public class MainForm : Form
             Top = 140, 
             Left = 20,
             Width = 260,
-            Height = 50, // Adjusted height
+            Height = 50,
             Font = new Font("Arial", 14),
             BackColor = Color.FromArgb(0, 123, 255),
             ForeColor = Color.White,
@@ -147,9 +132,9 @@ public class MainForm : Form
             Top = 200, 
             Left = 20,
             Width = 260,
-            Height = 50, // Adjusted height
-            BackColor = Color.FromArgb(0, 123, 255), // Lighter blue
-            Font = new Font("Arial", 14, FontStyle.Bold), // Bold and larger font
+            Height = 50,
+            BackColor = Color.FromArgb(0, 123, 255),
+            Font = new Font("Arial", 14, FontStyle.Bold),
             ForeColor = Color.White,
             FlatStyle = FlatStyle.Flat
         };
@@ -159,22 +144,20 @@ public class MainForm : Form
             Top = 260, 
             Left = 20,
             Width = 260,
-            Height = 50, // Adjusted height
+            Height = 50,
             Font = new Font("Arial", 14),
             BackColor = Color.FromArgb(108, 117, 125),
             ForeColor = Color.White,
             FlatStyle = FlatStyle.Flat
         };
 
-        // Event handlers for button clicks
         stortenButton.Click += StortenButton_Click;
         opnemenButton.Click += OpnemenButton_Click;
         transactieGeschiedenisButton.Click += TransactieGeschiedenisButton_Click;
 
-        // Add controls to the form
         Controls.Add(saldoLabel);
         Controls.Add(bedragTextBox);
-        Controls.Add(beschrijvingTextBox); // Add the new TextBox to the form
+        Controls.Add(beschrijvingTextBox);
         Controls.Add(stortenButton);
         Controls.Add(opnemenButton);
         Controls.Add(transactieGeschiedenisButton);
@@ -185,7 +168,6 @@ public class MainForm : Form
         BackColor = Color.White;
     }
 
-    // Event handler for deposit button click
     private void StortenButton_Click(object sender, EventArgs e)
     {
         try
@@ -201,7 +183,6 @@ public class MainForm : Form
         }
     }
 
-    // Event handler for withdraw button click
     private void OpnemenButton_Click(object sender, EventArgs e)
     {
         try
@@ -217,7 +198,6 @@ public class MainForm : Form
         }
     }
 
-    // Event handler for transaction history button click
     private void TransactieGeschiedenisButton_Click(object sender, EventArgs e)
     {
         var transactieGeschiedenis = mijnRekening.GetTransactieGeschiedenis();
@@ -231,10 +211,7 @@ public class MainForm : Form
         MessageBox.Show(geschiedenis);
     }
 }
-#endregion
 
-#region Program Class
-// Main program class
 class Program
 {
     static void Main()
@@ -254,4 +231,3 @@ class Program
         Application.Run(new MainForm());
     }
 }
-#endregion
