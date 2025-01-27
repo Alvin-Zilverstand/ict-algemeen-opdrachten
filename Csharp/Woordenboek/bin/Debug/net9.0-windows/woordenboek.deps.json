@@ -6,12 +6,12 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v9.0": {
-      "woordenboek/1.0.0": {
+      "Woordenboek/1.0.0": {
         "dependencies": {
           "Microsoft.Data.SqlClient": "6.0.1"
         },
         "runtime": {
-          "woordenboek.dll": {}
+          "Woordenboek.dll": {}
         }
       },
       "Azure.Core/1.38.0": {
@@ -378,7 +378,7 @@
     }
   },
   "libraries": {
-    "woordenboek/1.0.0": {
+    "Woordenboek/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

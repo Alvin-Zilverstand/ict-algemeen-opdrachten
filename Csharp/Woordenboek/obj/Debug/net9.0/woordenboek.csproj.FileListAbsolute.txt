@@ -1,5 +1,0 @@
-C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\woordenboek\obj\Debug\net9.0\woordenboek.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\woordenboek\obj\Debug\net9.0\woordenboek.AssemblyInfoInputs.cache
-C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\woordenboek\obj\Debug\net9.0\woordenboek.AssemblyInfo.cs
-C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\woordenboek\obj\Debug\net9.0\woordenboek.csproj.CoreCompileInputs.cache
-C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\woordenboek\obj\Debug\net9.0\woordenboek.sourcelink.json

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "e87e08pxRQc=",
+  "dgSpecHash": "+ziSI999zj8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\steen\\Desktop\\Alvin\\ict-algemeen-opdrachten\\Csharp\\woordenboek\\woordenboek.csproj",
+  "projectFilePath": "C:\\Users\\steen\\Desktop\\Alvin\\ict-algemeen-opdrachten\\Csharp\\Woordenboek\\Woordenboek.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\steen\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\steen\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
