@@ -87,7 +87,7 @@ public class MainForm : Form
 
         saldoLabel = new Label() 
         { 
-            Text = $"Saldo: {mijnRekening.ControleerSaldo()}", 
+            Text = $"Saldo: €{mijnRekening.ControleerSaldo():N2}", 
             Top = 20, 
             Left = 20, 
             Width = 200,
@@ -152,7 +152,7 @@ public class MainForm : Form
         {
             decimal bedrag = decimal.Parse(bedragTextBox.Text);
             mijnRekening.Storten(bedrag);
-            saldoLabel.Text = $"Saldo: {mijnRekening.ControleerSaldo()}";
+            saldoLabel.Text = $"Saldo: €{mijnRekening.ControleerSaldo():N2}";
         }
         catch (Exception ex)
         {
@@ -166,7 +166,7 @@ public class MainForm : Form
         {
             decimal bedrag = decimal.Parse(bedragTextBox.Text);
             mijnRekening.Opnemen(bedrag);
-            saldoLabel.Text = $"Saldo: {mijnRekening.ControleerSaldo()}";
+            saldoLabel.Text = $"Saldo: €{mijnRekening.ControleerSaldo():N2}";
         }
         catch (Exception ex)
         {
