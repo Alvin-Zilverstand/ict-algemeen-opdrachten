@@ -1,0 +1,15 @@
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Gokspel\bin\Debug\net9.0-windows\Gokspel.exe
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Gokspel\bin\Debug\net9.0-windows\Gokspel.deps.json
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Gokspel\bin\Debug\net9.0-windows\Gokspel.runtimeconfig.json
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Gokspel\bin\Debug\net9.0-windows\Gokspel.dll
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Gokspel\bin\Debug\net9.0-windows\Gokspel.pdb
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Gokspel\obj\Debug\net9.0-windows\Gokspel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Gokspel\obj\Debug\net9.0-windows\Gokspel.AssemblyInfoInputs.cache
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Gokspel\obj\Debug\net9.0-windows\Gokspel.AssemblyInfo.cs
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Gokspel\obj\Debug\net9.0-windows\Gokspel.csproj.CoreCompileInputs.cache
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Gokspel\obj\Debug\net9.0-windows\Gokspel.sourcelink.json
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Gokspel\obj\Debug\net9.0-windows\Gokspel.dll
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Gokspel\obj\Debug\net9.0-windows\refint\Gokspel.dll
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Gokspel\obj\Debug\net9.0-windows\Gokspel.pdb
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Gokspel\obj\Debug\net9.0-windows\Gokspel.genruntimeconfig.cache
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Gokspel\obj\Debug\net9.0-windows\ref\Gokspel.dll
