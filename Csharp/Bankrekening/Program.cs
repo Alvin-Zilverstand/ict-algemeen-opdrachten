@@ -90,44 +90,54 @@ public class MainForm : Form
             Text = $"Saldo: €{mijnRekening.ControleerSaldo():N2}", 
             Top = 20, 
             Left = 20, 
-            Width = 200,
-            Font = new Font("Arial", 12, FontStyle.Bold),
-            ForeColor = Color.DarkGreen
+            Width = 240,
+            Font = new Font("Arial", 16, FontStyle.Bold),
+            ForeColor = Color.White,
+            BackColor = Color.FromArgb(0, 123, 255),
+            TextAlign = ContentAlignment.MiddleCenter
         };
         bedragTextBox = new TextBox() 
         { 
-            Top = 50, 
+            Top = 60, 
             Left = 20, 
-            Width = 200,
-            Font = new Font("Arial", 10),
-            BackColor = Color.LightYellow
+            Width = 240,
+            Font = new Font("Arial", 14),
+            BackColor = Color.White,
+            ForeColor = Color.Black,
+            BorderStyle = BorderStyle.FixedSingle
         };
         stortenButton = new Button() 
         { 
             Text = "Storten", 
-            Top = 80, 
+            Top = 100, 
             Left = 20,
-            Width = 200,
-            Font = new Font("Arial", 10),
-            BackColor = Color.LightBlue
+            Width = 240,
+            Font = new Font("Arial", 14),
+            BackColor = Color.FromArgb(0, 123, 255),
+            ForeColor = Color.White,
+            FlatStyle = FlatStyle.Flat
         };
         opnemenButton = new Button() 
         { 
             Text = "Opnemen", 
-            Top = 110, 
+            Top = 140, 
             Left = 20,
-            Width = 200,
-            Font = new Font("Arial", 10),
-            BackColor = Color.LightCoral
+            Width = 240,
+            Font = new Font("Arial", 14),
+            BackColor = Color.FromArgb(220, 53, 69),
+            ForeColor = Color.White,
+            FlatStyle = FlatStyle.Flat
         };
         transactieGeschiedenisButton = new Button() 
         { 
             Text = "Transactiegeschiedenis", 
-            Top = 140, 
+            Top = 180, 
             Left = 20,
-            Width = 200,
-            Font = new Font("Arial", 10),
-            BackColor = Color.LightGray
+            Width = 240,
+            Font = new Font("Arial", 14),
+            BackColor = Color.FromArgb(108, 117, 125),
+            ForeColor = Color.White,
+            FlatStyle = FlatStyle.Flat
         };
 
         stortenButton.Click += StortenButton_Click;
@@ -141,9 +151,9 @@ public class MainForm : Form
         Controls.Add(transactieGeschiedenisButton);
 
         Text = "Bankrekening Beheer";
-        Size = new Size(300, 250);
+        Size = new Size(300, 300);
         StartPosition = FormStartPosition.CenterScreen;
-        BackColor = Color.WhiteSmoke;
+        BackColor = Color.White;
     }
 
     private void StortenButton_Click(object sender, EventArgs e)
