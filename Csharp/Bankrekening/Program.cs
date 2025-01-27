@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
+// Class representing a bank account
 class Bankrekening
 {
     public string Rekeningnummer { get; }
     private decimal saldo;
     private List<Transactie> transacties;
 
+    // Constructor to initialize account number and starting balance
     public Bankrekening(string rekeningnummer, decimal beginsaldo)
     {
         Rekeningnummer = rekeningnummer;
@@ -16,6 +18,7 @@ class Bankrekening
         transacties = new List<Transactie>();
     }
 
+    // Method to deposit money into the account with a description
     public void Storten(decimal bedrag, string beschrijving)
     {
         if (bedrag > 0)
@@ -25,10 +28,11 @@ class Bankrekening
         }
         else
         {
-            throw new ArgumentException("Het bedrag moet positief zijn.");
+            throw new ArgumentException("The amount must be positive.");
         }
     }
 
+    // Method to withdraw money from the account with a description
     public void Opnemen(decimal bedrag, string beschrijving)
     {
         if (bedrag > 0 && bedrag <= saldo)
@@ -38,27 +42,31 @@ class Bankrekening
         }
         else
         {
-            throw new ArgumentException("Onvoldoende saldo of ongeldig bedrag.");
+            throw new ArgumentException("Insufficient balance or invalid amount.");
         }
     }
 
+    // Method to check the current balance
     public decimal ControleerSaldo()
     {
         return saldo;
     }
 
+    // Method to get the transaction history
     public List<Transactie> GetTransactieGeschiedenis()
     {
         return transacties;
     }
 }
 
+// Class representing a transaction
 class Transactie
 {
     public decimal Bedrag { get; }
     public string Beschrijving { get; }
     public DateTime Datum { get; }
 
+    // Constructor to initialize transaction details
     public Transactie(decimal bedrag, string beschrijving)
     {
         Bedrag = bedrag;
@@ -67,6 +75,7 @@ class Transactie
     }
 }
 
+// Main form for the application
 public class MainForm : Form
 {
     private Bankrekening mijnRekening;
@@ -77,6 +86,7 @@ public class MainForm : Form
     private Button opnemenButton;
     private Button transactieGeschiedenisButton;
 
+    // Constructor to initialize the form and its controls
     public MainForm()
     {
         mijnRekening = new Bankrekening("NL01BANK0123456789", 1000);
@@ -101,7 +111,7 @@ public class MainForm : Form
             BackColor = Color.White,
             ForeColor = Color.Black,
             BorderStyle = BorderStyle.FixedSingle,
-            PlaceholderText = "Aantal"
+            PlaceholderText = "Amount"
         };
         beschrijvingTextBox = new TextBox() 
         { 
@@ -112,11 +122,11 @@ public class MainForm : Form
             BackColor = Color.White,
             ForeColor = Color.Black,
             BorderStyle = BorderStyle.FixedSingle,
-            PlaceholderText = "Beschrijving"
+            PlaceholderText = "Description"
         };
         stortenButton = new Button() 
         { 
-            Text = "Storten", 
+            Text = "Deposit", 
             Top = 140, 
             Left = 20,
             Width = 260,
@@ -128,7 +138,7 @@ public class MainForm : Form
         };
         opnemenButton = new Button() 
         { 
-            Text = "Opnemen", 
+            Text = "Withdraw", 
             Top = 200, 
             Left = 20,
             Width = 260,
@@ -140,7 +150,7 @@ public class MainForm : Form
         };
         transactieGeschiedenisButton = new Button() 
         { 
-            Text = "Transactiegeschiedenis", 
+            Text = "Transaction History", 
             Top = 260, 
             Left = 20,
             Width = 260,
@@ -162,12 +172,13 @@ public class MainForm : Form
         Controls.Add(opnemenButton);
         Controls.Add(transactieGeschiedenisButton);
 
-        Text = "Bankrekening Beheer";
+        Text = "Bank Account Management";
         Size = new Size(320, 380);
         StartPosition = FormStartPosition.CenterScreen;
         BackColor = Color.White;
     }
 
+    // Event handler for deposit button click
     private void StortenButton_Click(object sender, EventArgs e)
     {
         try
@@ -183,6 +194,7 @@ public class MainForm : Form
         }
     }
 
+    // Event handler for withdraw button click
     private void OpnemenButton_Click(object sender, EventArgs e)
     {
         try
@@ -198,11 +210,12 @@ public class MainForm : Form
         }
     }
 
+    // Event handler for transaction history button click
     private void TransactieGeschiedenisButton_Click(object sender, EventArgs e)
     {
         var transactieGeschiedenis = mijnRekening.GetTransactieGeschiedenis();
-        string geschiedenis = "Transactiegeschiedenis:\n";
-        geschiedenis += "Datum\t\tBeschrijving\t\tBedrag\n";
+        string geschiedenis = "Transaction History:\n";
+        geschiedenis += "Date\t\tDescription\t\tAmount\n";
         geschiedenis += "---------------------------------------------\n";
         foreach (var transactie in transactieGeschiedenis)
         {
@@ -212,6 +225,7 @@ public class MainForm : Form
     }
 }
 
+// Main program class
 class Program
 {
     static void Main()
@@ -220,7 +234,7 @@ class Program
         mijnRekening.Storten(100.00m, "Initial deposit");
         mijnRekening.Opnemen(50.00m, "ATM withdrawal");
 
-        Console.WriteLine("Transactiegeschiedenis:");
+        Console.WriteLine("Transaction History:");
         foreach (var transactie in mijnRekening.GetTransactieGeschiedenis())
         {
             Console.WriteLine($"{transactie.Datum}: {transactie.Beschrijving} - {transactie.Bedrag:C}");
