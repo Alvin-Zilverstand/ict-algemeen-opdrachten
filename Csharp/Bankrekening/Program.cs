@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
+#region Bankrekening Class
 class Bankrekening
 {
     public string Rekeningnummer { get; }
@@ -51,7 +53,9 @@ class Bankrekening
         return transacties;
     }
 }
+#endregion
 
+#region Transactie Class
 class Transactie
 {
     public decimal Bedrag { get; }
@@ -65,7 +69,9 @@ class Transactie
         Datum = DateTime.Now;
     }
 }
+#endregion
 
+#region MainForm Class
 public class MainForm : Form
 {
     private Bankrekening mijnRekening;
@@ -79,11 +85,45 @@ public class MainForm : Form
     {
         mijnRekening = new Bankrekening("NL01BANK0123456789", 1000);
 
-        saldoLabel = new Label() { Text = $"Saldo: {mijnRekening.ControleerSaldo()}", Top = 20, Left = 20, Width = 200 };
-        bedragTextBox = new TextBox() { Top = 50, Left = 20, Width = 200 };
-        stortenButton = new Button() { Text = "Storten", Top = 80, Left = 20 };
-        opnemenButton = new Button() { Text = "Opnemen", Top = 110, Left = 20 };
-        transactieGeschiedenisButton = new Button() { Text = "Transactiegeschiedenis", Top = 140, Left = 20 };
+        saldoLabel = new Label() 
+        { 
+            Text = $"Saldo: {mijnRekening.ControleerSaldo()}", 
+            Top = 20, 
+            Left = 20, 
+            Width = 200,
+            Font = new Font("Arial", 12, FontStyle.Bold)
+        };
+        bedragTextBox = new TextBox() 
+        { 
+            Top = 50, 
+            Left = 20, 
+            Width = 200,
+            Font = new Font("Arial", 10)
+        };
+        stortenButton = new Button() 
+        { 
+            Text = "Storten", 
+            Top = 80, 
+            Left = 20,
+            Width = 200,
+            Font = new Font("Arial", 10)
+        };
+        opnemenButton = new Button() 
+        { 
+            Text = "Opnemen", 
+            Top = 110, 
+            Left = 20,
+            Width = 200,
+            Font = new Font("Arial", 10)
+        };
+        transactieGeschiedenisButton = new Button() 
+        { 
+            Text = "Transactiegeschiedenis", 
+            Top = 140, 
+            Left = 20,
+            Width = 200,
+            Font = new Font("Arial", 10)
+        };
 
         stortenButton.Click += StortenButton_Click;
         opnemenButton.Click += OpnemenButton_Click;
@@ -94,6 +134,10 @@ public class MainForm : Form
         Controls.Add(stortenButton);
         Controls.Add(opnemenButton);
         Controls.Add(transactieGeschiedenisButton);
+
+        Text = "Bankrekening Beheer";
+        Size = new Size(300, 250);
+        StartPosition = FormStartPosition.CenterScreen;
     }
 
     private void StortenButton_Click(object sender, EventArgs e)
@@ -135,7 +179,9 @@ public class MainForm : Form
         MessageBox.Show(geschiedenis);
     }
 }
+#endregion
 
+#region Program Class
 class Program
 {
     static void Main()
@@ -155,3 +201,4 @@ class Program
         Application.Run(new MainForm());
     }
 }
+#endregion
