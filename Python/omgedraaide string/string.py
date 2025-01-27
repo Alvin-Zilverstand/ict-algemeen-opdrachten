@@ -1,0 +1,1 @@
+print("Deez"[::-1])  # Output: "olleh"
