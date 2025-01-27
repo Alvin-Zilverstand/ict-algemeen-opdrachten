@@ -1,57 +1,69 @@
 ﻿using System;
-using Microsoft.Data.SqlClient; // Update this line
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace Woordenboek
+namespace DictionaryApp
 {
     public class Program : Form
     {
         private TextBox wordTextBox;
         private Button searchButton;
-        private Label meaningLabel;
+        private ListBox meaningListBox;
+        private static readonly HttpClient client = new HttpClient();
 
         public Program()
         {
             wordTextBox = new TextBox { Left = 50, Top = 20, Width = 200 };
-            searchButton = new Button { Text = "Zoek", Left = 260, Top = 20, Width = 100 };
-            meaningLabel = new Label { Left = 50, Top = 60, Width = 310 };
+            searchButton = new Button { Text = "Search", Left = 260, Top = 20, Width = 100 };
+            meaningListBox = new ListBox { Left = 50, Top = 60, Width = 310, Height = 200 };
 
             searchButton.Click += new EventHandler(SearchButton_Click);
+            wordTextBox.KeyDown += new KeyEventHandler(WordTextBox_KeyDown);
 
             Controls.Add(wordTextBox);
             Controls.Add(searchButton);
-            Controls.Add(meaningLabel);
+            Controls.Add(meaningListBox);
 
-            Text = "Woordenboek";
-            Size = new System.Drawing.Size(400, 150);
+            Text = "Dictionary";
+            Size = new System.Drawing.Size(400, 300);
         }
 
-        private void SearchButton_Click(object? sender, EventArgs e)
+        private void WordTextBox_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchButton_Click(this, new EventArgs());
+                e.SuppressKeyPress = true; // Prevent the beep sound on Enter key press
+            }
+        }
+
+        private async void SearchButton_Click(object? sender, EventArgs e)
         {
             string word = wordTextBox.Text;
-            string? meaning = GetMeaningFromDatabase(word);
-            meaningLabel.Text = meaning ?? "Betekenis niet gevonden.";
+            string? meaning = await GetMeaningFromApi(word);
+            meaningListBox.Items.Clear();
+            meaningListBox.Items.Add(meaning ?? "Meaning not found.");
         }
 
-        private string? GetMeaningFromDatabase(string word)
+        private async Task<string?> GetMeaningFromApi(string word)
         {
-            string connectionString = "Server=your_server_name;Database=your_database_name;User Id=your_username;Password=your_password;";
-            string query = "SELECT Meaning FROM Dictionary WHERE Word = @word";
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@word", word);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    return reader["Meaning"].ToString();
-                }
-                else
-                {
-                    return null;
-                }
+                string apiUrl = $"https://api.dictionaryapi.dev/api/v2/entries/en/{word}";
+                HttpResponseMessage response = await client.GetAsync(apiUrl);
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                // Parse the responseBody to extract the meaning
+                // This is a simplified example, you may need to adjust the parsing based on the actual API response format
+                var json = System.Text.Json.JsonDocument.Parse(responseBody);
+                var meaning = json.RootElement[0].GetProperty("meanings")[0].GetProperty("definitions")[0].GetProperty("definition").GetString();
+                return meaning;
+            }
+            catch (HttpRequestException)
+            {
+                return null;
             }
         }
 

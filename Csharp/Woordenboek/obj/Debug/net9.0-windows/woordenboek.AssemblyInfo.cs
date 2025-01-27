@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("woordenboek")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aa5e80f9e3910a71e1746d19afcc838a78abfd1d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca3a62d7744d2cbad686550a04e7f0edbf1507ba")]
 [assembly: System.Reflection.AssemblyProductAttribute("woordenboek")]
 [assembly: System.Reflection.AssemblyTitleAttribute("woordenboek")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
