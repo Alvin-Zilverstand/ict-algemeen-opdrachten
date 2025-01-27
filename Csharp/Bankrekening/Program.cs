@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 class Bankrekening
 {
@@ -14,11 +15,10 @@ class Bankrekening
         if (bedrag > 0)
         {
             saldo += bedrag;
-            Console.WriteLine($"U heeft {bedrag} gestort. Nieuw saldo: {saldo}");
         }
         else
         {
-            Console.WriteLine("Het bedrag moet positief zijn.");
+            throw new ArgumentException("Het bedrag moet positief zijn.");
         }
     }
 
@@ -27,29 +27,81 @@ class Bankrekening
         if (bedrag > 0 && bedrag <= saldo)
         {
             saldo -= bedrag;
-            Console.WriteLine($"U heeft {bedrag} opgenomen. Nieuw saldo: {saldo}");
         }
         else
         {
-            Console.WriteLine("Onvoldoende saldo of ongeldig bedrag.");
+            throw new ArgumentException("Onvoldoende saldo of ongeldig bedrag.");
         }
     }
 
-    public void ControleerSaldo()
+    public decimal ControleerSaldo()
     {
-        Console.WriteLine($"Uw huidige saldo is: {saldo}");
+        return saldo;
+    }
+}
+
+public class MainForm : Form
+{
+    private Bankrekening mijnRekening;
+    private Label saldoLabel;
+    private TextBox bedragTextBox;
+    private Button stortenButton;
+    private Button opnemenButton;
+
+    public MainForm()
+    {
+        mijnRekening = new Bankrekening(1000);
+
+        saldoLabel = new Label() { Text = $"Saldo: {mijnRekening.ControleerSaldo()}", Top = 20, Left = 20, Width = 200 };
+        bedragTextBox = new TextBox() { Top = 50, Left = 20, Width = 200 };
+        stortenButton = new Button() { Text = "Storten", Top = 80, Left = 20 };
+        opnemenButton = new Button() { Text = "Opnemen", Top = 110, Left = 20 };
+
+        stortenButton.Click += StortenButton_Click;
+        opnemenButton.Click += OpnemenButton_Click;
+
+        Controls.Add(saldoLabel);
+        Controls.Add(bedragTextBox);
+        Controls.Add(stortenButton);
+        Controls.Add(opnemenButton);
+    }
+
+    private void StortenButton_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            decimal bedrag = decimal.Parse(bedragTextBox.Text);
+            mijnRekening.Storten(bedrag);
+            saldoLabel.Text = $"Saldo: {mijnRekening.ControleerSaldo()}";
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message);
+        }
+    }
+
+    private void OpnemenButton_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            decimal bedrag = decimal.Parse(bedragTextBox.Text);
+            mijnRekening.Opnemen(bedrag);
+            saldoLabel.Text = $"Saldo: {mijnRekening.ControleerSaldo()}";
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message);
+        }
     }
 }
 
 class Program
 {
-    static void Main(string[] args)
+    [STAThread]
+    static void Main()
     {
-        Bankrekening mijnRekening = new Bankrekening(1000);
-
-        mijnRekening.ControleerSaldo();
-        mijnRekening.Storten(200);
-        mijnRekening.Opnemen(150);
-        mijnRekening.ControleerSaldo();
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
+        Application.Run(new MainForm());
     }
 }
