@@ -64,7 +64,7 @@ def get_weather(lat, lon, city_name):
     if response.status_code == 200:
         data = response.json()  # Parse the JSON response
         # Print the weather information
-        print(f"Weather at coordinates ({lat}, {lon}) for city {city_name}:")
+        print(f"Weather at coordinates ({lat}, {lon}) in {city_name}:")
         print(f"Temperature: {data['main']['temp']}°C")
         print(f"Weather: {data['weather'][0]['description']}")
     else:
@@ -76,15 +76,16 @@ if __name__ == "__main__":
     log_file_path = os.path.join(os.path.dirname(__file__), 'weather.log')
     if os.path.exists(log_file_path):
         with open(log_file_path, 'a') as log_file:
-            log_file.write('\n\n')  # Add 2 empty lines before appending new logs
+            log_file.write('\n')  # Add 2 empty lines before appending new logs
     with open(log_file_path, 'a') as log_file:
-        tee = Tee(sys.stdout, log_file)
-        sys.stdout = tee
         city_name = input("Enter city name: ")  # Prompt the user to enter a city name
         lat, lon = get_coordinates(city_name)  # Get the coordinates of the city
         if lat is not None and lon is not None:
-            print(f"Coordinates for {city_name}: ({lat}, {lon})")  # Log the coordinates and city name
+            original_stdout = sys.stdout  # Save the original stdout
+            tee = Tee(original_stdout, log_file)
+            sys.stdout = tee  # Redirect stdout to both terminal and log file
             get_weather(lat, lon, city_name)  # Get the weather data for the coordinates
+            sys.stdout = original_stdout  # Reset stdout to original
         # Sleep for 5 seconds before exiting to ensure all logs are written
         time.sleep(5)
         tee.close()  # Close the Tee object to ensure all files are properly closed
