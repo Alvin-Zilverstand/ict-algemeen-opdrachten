@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "NHnnkwFtkMM=",
+  "dgSpecHash": "V/2eszA1eXk=",
   "success": true,
   "projectFilePath": "C:\\Users\\steen\\Desktop\\Alvin\\ict-algemeen-opdrachten\\Csharp\\Bankrekening\\Bankrekening.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\steen\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.36\\microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\steen\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.36\\microsoft.windowsdesktop.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\steen\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.36\\microsoft.aspnetcore.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\steen\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.36\\microsoft.netcore.app.host.win-x64.6.0.36.nupkg.sha512"
+  ],
   "logs": []
 }

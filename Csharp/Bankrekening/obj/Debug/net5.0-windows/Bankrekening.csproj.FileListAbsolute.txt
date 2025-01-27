@@ -1,0 +1,5 @@
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Bankrekening\obj\Debug\net5.0-windows\Bankrekening.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Bankrekening\obj\Debug\net5.0-windows\Bankrekening.AssemblyInfoInputs.cache
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Bankrekening\obj\Debug\net5.0-windows\Bankrekening.AssemblyInfo.cs
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Bankrekening\obj\Debug\net5.0-windows\Bankrekening.csproj.CoreCompileInputs.cache
+C:\Users\steen\Desktop\Alvin\ict-algemeen-opdrachten\Csharp\Bankrekening\obj\Debug\net5.0-windows\Bankrekening.sourcelink.json
