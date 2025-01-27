@@ -90,7 +90,7 @@ public class MainForm : Form
             Text = $"Saldo: €{mijnRekening.ControleerSaldo():N2}", 
             Top = 20, 
             Left = 20, 
-            Width = 240,
+            Width = 260,
             Font = new Font("Arial", 16, FontStyle.Bold),
             ForeColor = Color.White,
             BackColor = Color.FromArgb(0, 123, 255),
@@ -100,7 +100,7 @@ public class MainForm : Form
         { 
             Top = 60, 
             Left = 20, 
-            Width = 240,
+            Width = 260,
             Font = new Font("Arial", 14),
             BackColor = Color.White,
             ForeColor = Color.Black,
@@ -111,7 +111,7 @@ public class MainForm : Form
             Text = "Storten", 
             Top = 100, 
             Left = 20,
-            Width = 240,
+            Width = 260,
             Font = new Font("Arial", 14),
             BackColor = Color.FromArgb(0, 123, 255),
             ForeColor = Color.White,
@@ -122,9 +122,8 @@ public class MainForm : Form
             Text = "Opnemen", 
             Top = 140, 
             Left = 20,
-            Width = 240,
-            Font = new Font("Arial", 14),
-            BackColor = Color.FromArgb(220, 53, 69),
+            Width = 260,
+            BackColor = Color.FromArgb(0, 123, 255), // Lighter blue
             ForeColor = Color.White,
             FlatStyle = FlatStyle.Flat
         };
@@ -133,7 +132,7 @@ public class MainForm : Form
             Text = "Transactiegeschiedenis", 
             Top = 180, 
             Left = 20,
-            Width = 240,
+            Width = 260,
             Font = new Font("Arial", 14),
             BackColor = Color.FromArgb(108, 117, 125),
             ForeColor = Color.White,
@@ -151,7 +150,7 @@ public class MainForm : Form
         Controls.Add(transactieGeschiedenisButton);
 
         Text = "Bankrekening Beheer";
-        Size = new Size(300, 300);
+        Size = new Size(320, 320);
         StartPosition = FormStartPosition.CenterScreen;
         BackColor = Color.White;
     }
