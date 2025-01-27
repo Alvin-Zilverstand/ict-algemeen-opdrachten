@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 
-public class Bankrekening
+class Bankrekening
 {
     private decimal saldo;
-    private string rekeningnummer;
-    private List<string> transactieGeschiedenis;
 
-    public Bankrekening(string rekeningnummer, decimal beginsaldo)
+    public Bankrekening(decimal beginsaldo)
     {
-        this.rekeningnummer = rekeningnummer;
         saldo = beginsaldo;
-        transactieGeschiedenis = new List<string>();
-        transactieGeschiedenis.Add($"Rekening geopend met beginsaldo: €{beginsaldo}");
     }
 
     public void Storten(decimal bedrag)
@@ -20,12 +14,11 @@ public class Bankrekening
         if (bedrag > 0)
         {
             saldo += bedrag;
-            transactieGeschiedenis.Add($"€{bedrag} gestort. Nieuw saldo: €{saldo}");
-            Console.WriteLine($"€{bedrag} gestort. Nieuw saldo: €{saldo}");
+            Console.WriteLine($"U heeft {bedrag} gestort. Nieuw saldo: {saldo}");
         }
         else
         {
-            Console.WriteLine("Bedrag moet positief zijn om te storten.");
+            Console.WriteLine("Het bedrag moet positief zijn.");
         }
     }
 
@@ -34,8 +27,7 @@ public class Bankrekening
         if (bedrag > 0 && bedrag <= saldo)
         {
             saldo -= bedrag;
-            transactieGeschiedenis.Add($"€{bedrag} opgenomen. Nieuw saldo: €{saldo}");
-            Console.WriteLine($"€{bedrag} opgenomen. Nieuw saldo: €{saldo}");
+            Console.WriteLine($"U heeft {bedrag} opgenomen. Nieuw saldo: {saldo}");
         }
         else
         {
@@ -43,29 +35,21 @@ public class Bankrekening
         }
     }
 
-    public decimal ControleerSaldo()
+    public void ControleerSaldo()
     {
-        return saldo;
-    }
-
-    public void BekijkTransactieGeschiedenis()
-    {
-        Console.WriteLine("Transactiegeschiedenis:");
-        foreach (var transactie in transactieGeschiedenis)
-        {
-            Console.WriteLine(transactie);
-        }
+        Console.WriteLine($"Uw huidige saldo is: {saldo}");
     }
 }
 
-public partial class Program
+class Program
 {
-    public static void Main(string[] args)
+    static void Main(string[] args)
     {
-        Bankrekening mijnRekening = new Bankrekening("NL01BANK0123456789", 1000);
-        mijnRekening.Storten(500);
-        mijnRekening.Opnemen(200);
-        Console.WriteLine($"Huidig saldo: €{mijnRekening.ControleerSaldo()}");
-        mijnRekening.BekijkTransactieGeschiedenis();
+        Bankrekening mijnRekening = new Bankrekening(1000);
+
+        mijnRekening.ControleerSaldo();
+        mijnRekening.Storten(200);
+        mijnRekening.Opnemen(150);
+        mijnRekening.ControleerSaldo();
     }
 }
