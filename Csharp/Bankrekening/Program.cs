@@ -19,13 +19,13 @@ class Bankrekening
         transacties = new List<Transactie>();
     }
 
-    // Method to deposit money into the account
-    public void Storten(decimal bedrag)
+    // Method to deposit money into the account with a description
+    public void Storten(decimal bedrag, string beschrijving)
     {
         if (bedrag > 0)
         {
             saldo += bedrag;
-            transacties.Add(new Transactie(bedrag, "Storting"));
+            transacties.Add(new Transactie(bedrag, beschrijving));
         }
         else
         {
@@ -33,13 +33,13 @@ class Bankrekening
         }
     }
 
-    // Method to withdraw money from the account
-    public void Opnemen(decimal bedrag)
+    // Method to withdraw money from the account with a description
+    public void Opnemen(decimal bedrag, string beschrijving)
     {
         if (bedrag > 0 && bedrag <= saldo)
         {
             saldo -= bedrag;
-            transacties.Add(new Transactie(-bedrag, "Opname"));
+            transacties.Add(new Transactie(-bedrag, beschrijving));
         }
         else
         {
@@ -86,6 +86,7 @@ public class MainForm : Form
     private Bankrekening mijnRekening; // Bank account instance
     private Label saldoLabel; // Label to display balance
     private TextBox bedragTextBox; // TextBox to input amount
+    private TextBox beschrijvingTextBox; // TextBox to input transaction description
     private Button stortenButton; // Button to deposit money
     private Button opnemenButton; // Button to withdraw money
     private Button transactieGeschiedenisButton; // Button to view transaction history
@@ -114,12 +115,24 @@ public class MainForm : Form
             Font = new Font("Arial", 14),
             BackColor = Color.White,
             ForeColor = Color.Black,
-            BorderStyle = BorderStyle.FixedSingle
+            BorderStyle = BorderStyle.FixedSingle,
+            PlaceholderText = "Aantal" // Placeholder text
+        };
+        beschrijvingTextBox = new TextBox() 
+        { 
+            Top = 100, 
+            Left = 20, 
+            Width = 260,
+            Font = new Font("Arial", 14),
+            BackColor = Color.White,
+            ForeColor = Color.Black,
+            BorderStyle = BorderStyle.FixedSingle,
+            PlaceholderText = "Beschrijving" // Placeholder text
         };
         stortenButton = new Button() 
         { 
             Text = "Storten", 
-            Top = 100, 
+            Top = 140, 
             Left = 20,
             Width = 260,
             Height = 50, // Adjusted height
@@ -131,7 +144,7 @@ public class MainForm : Form
         opnemenButton = new Button() 
         { 
             Text = "Opnemen", 
-            Top = 160, 
+            Top = 200, 
             Left = 20,
             Width = 260,
             Height = 50, // Adjusted height
@@ -143,7 +156,7 @@ public class MainForm : Form
         transactieGeschiedenisButton = new Button() 
         { 
             Text = "Transactiegeschiedenis", 
-            Top = 220, 
+            Top = 260, 
             Left = 20,
             Width = 260,
             Height = 50, // Adjusted height
@@ -161,6 +174,7 @@ public class MainForm : Form
         // Add controls to the form
         Controls.Add(saldoLabel);
         Controls.Add(bedragTextBox);
+        Controls.Add(beschrijvingTextBox); // Add the new TextBox to the form
         Controls.Add(stortenButton);
         Controls.Add(opnemenButton);
         Controls.Add(transactieGeschiedenisButton);
@@ -177,7 +191,8 @@ public class MainForm : Form
         try
         {
             decimal bedrag = decimal.Parse(bedragTextBox.Text);
-            mijnRekening.Storten(bedrag);
+            string beschrijving = beschrijvingTextBox.Text;
+            mijnRekening.Storten(bedrag, beschrijving);
             saldoLabel.Text = $"Saldo: €{mijnRekening.ControleerSaldo():N2}";
         }
         catch (Exception ex)
@@ -192,7 +207,8 @@ public class MainForm : Form
         try
         {
             decimal bedrag = decimal.Parse(bedragTextBox.Text);
-            mijnRekening.Opnemen(bedrag);
+            string beschrijving = beschrijvingTextBox.Text;
+            mijnRekening.Opnemen(bedrag, beschrijving);
             saldoLabel.Text = $"Saldo: €{mijnRekening.ControleerSaldo():N2}";
         }
         catch (Exception ex)
@@ -224,8 +240,8 @@ class Program
     static void Main()
     {
         var mijnRekening = new Bankrekening("NL01BANK0123456789", 1000);
-        mijnRekening.Storten(100.00m);
-        mijnRekening.Opnemen(50.00m);
+        mijnRekening.Storten(100.00m, "Initial deposit");
+        mijnRekening.Opnemen(50.00m, "ATM withdrawal");
 
         Console.WriteLine("Transactiegeschiedenis:");
         foreach (var transactie in mijnRekening.GetTransactieGeschiedenis())
