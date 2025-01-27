@@ -10,24 +10,31 @@ namespace DictionaryApp
     {
         private TextBox wordTextBox;
         private Button searchButton;
-        private ListBox meaningListBox;
+        private TextBox meaningTextBox;
         private static readonly HttpClient client = new HttpClient();
 
         public Program()
         {
             wordTextBox = new TextBox { Left = 50, Top = 20, Width = 200 };
             searchButton = new Button { Text = "Search", Left = 260, Top = 20, Width = 100 };
-            meaningListBox = new ListBox { Left = 50, Top = 60, Width = 310, Height = 200 };
+            meaningTextBox = new TextBox { Left = 50, Top = 60, Width = 310, Height = 200, Multiline = true, ScrollBars = ScrollBars.Vertical, ReadOnly = true };
 
             searchButton.Click += new EventHandler(SearchButton_Click);
             wordTextBox.KeyDown += new KeyEventHandler(WordTextBox_KeyDown);
+            this.Resize += new EventHandler(Form_Resize);
 
             Controls.Add(wordTextBox);
             Controls.Add(searchButton);
-            Controls.Add(meaningListBox);
+            Controls.Add(meaningTextBox);
 
             Text = "Dictionary";
             Size = new System.Drawing.Size(400, 300);
+        }
+
+        private void Form_Resize(object? sender, EventArgs e)
+        {
+            meaningTextBox.Width = this.ClientSize.Width - 100;
+            meaningTextBox.Height = this.ClientSize.Height - 100;
         }
 
         private void WordTextBox_KeyDown(object? sender, KeyEventArgs e)
@@ -43,8 +50,7 @@ namespace DictionaryApp
         {
             string word = wordTextBox.Text;
             string? meaning = await GetMeaningFromApi(word);
-            meaningListBox.Items.Clear();
-            meaningListBox.Items.Add(meaning ?? "Meaning not found.");
+            meaningTextBox.Text = meaning ?? "Meaning not found.";
         }
 
         private async Task<string?> GetMeaningFromApi(string word)
