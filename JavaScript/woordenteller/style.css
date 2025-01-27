@@ -1,12 +1,15 @@
+/* Basic styling for the body */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
 }
 
+/* Styling for the header */
 h1 {
     color: #333;
 }
 
+/* Styling for the textarea input */
 textarea {
     width: 100%;
     padding: 10px;
@@ -15,6 +18,7 @@ textarea {
     border-radius: 4px;
 }
 
+/* Styling for the button */
 button {
     padding: 10px 20px;
     background-color: #007BFF;
@@ -24,14 +28,17 @@ button {
     cursor: pointer;
 }
 
+/* Styling for the button on hover */
 button:hover {
     background-color: #0056b3;
 }
 
+/* Styling for the result div */
 #result {
     margin-top: 20px;
 }
 
+/* Styling for each result paragraph */
 #result p {
     background-color: #f8f9fa;
     padding: 5px;
