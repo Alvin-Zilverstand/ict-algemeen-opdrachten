@@ -1,3 +1,4 @@
+/* Basisstijl voor de body */
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -9,22 +10,26 @@ body {
     margin: 0;
 }
 
+/* Stijl voor de koptekst */
 h1 {
     color: #333;
 }
 
+/* Stijl voor de invoer en knop */
 input, button {
     padding: 10px;
     margin: 5px;
     font-size: 16px;
 }
 
+/* Stijl voor het resultaatbericht */
 #result {
     margin-top: 20px;
     font-size: 18px;
     color: #555;
 }
 
+/* Stijl voor de confetti-container */
 #confetti-container {
     position: fixed;
     top: 0;
@@ -35,14 +40,15 @@ input, button {
     overflow: hidden;
 }
 
+/* Stijl voor de confetti-elementen */
 .confetti {
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: #ff0;
     animation: fall 3s linear infinite;
 }
 
+/* Animatie voor de vallende confetti */
 @keyframes fall {
     0% {
         transform: translateY(-100vh) rotate(0deg);
