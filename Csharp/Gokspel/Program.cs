@@ -10,6 +10,7 @@ class Program : Form
     private TextBox inputBox;
     private Label resultLabel;
     private Button guessButton;
+    private Button restartButton;
     private System.Windows.Forms.Timer confettiTimer;
     private List<Confetti> confettiList = new List<Confetti>();
 
@@ -41,6 +42,13 @@ class Program : Form
         resultLabel.AutoSize = true;
         this.Controls.Add(resultLabel);
 
+        restartButton = new Button();
+        restartButton.Text = "Opnieuw";
+        restartButton.Location = new System.Drawing.Point(10, 140);
+        restartButton.Click += new EventHandler(RestartButton_Click);
+        restartButton.Visible = false;
+        this.Controls.Add(restartButton);
+
         confettiTimer = new System.Windows.Forms.Timer();
         confettiTimer.Interval = 30;
         confettiTimer.Tick += new EventHandler(ConfettiTimer_Tick);
@@ -63,12 +71,24 @@ class Program : Form
             {
                 resultLabel.Text = "Gefeliciteerd! Je hebt het juiste getal geraden.";
                 StartConfetti();
+                restartButton.Visible = true;
             }
         }
         else
         {
             resultLabel.Text = "Ongeldige invoer. Voer een getal in.";
         }
+    }
+
+    private void RestartButton_Click(object sender, EventArgs e)
+    {
+        numberToGuess = random.Next(1, 101);
+        resultLabel.Text = "";
+        inputBox.Text = "";
+        confettiList.Clear();
+        confettiTimer.Stop();
+        restartButton.Visible = false;
+        this.Invalidate();
     }
 
     private void StartConfetti()
