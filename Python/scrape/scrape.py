@@ -46,4 +46,4 @@ else:
 
     print(f"De titels zijn toegevoegd aan {file_path}")
 
-time.sleep(2)  # Wacht 5 seconden voordat het script wordt afgesloten
+time.sleep(2)  # Wacht 2 seconden voordat het script wordt afgesloten

@@ -1,4 +1,5 @@
 def is_prime(num):
+    # Controleer of een getal een priemgetal is
     if num <= 1:
         return False
     for i in range(2, int(num**0.5) + 1):
@@ -7,6 +8,7 @@ def is_prime(num):
     return True
 
 def generate_primes(N):
+    # Genereer een lijst van priemgetallen tot N
     primes = []
     for num in range(2, N + 1):
         if is_prime(num):

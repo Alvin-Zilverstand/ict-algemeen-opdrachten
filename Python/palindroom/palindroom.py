@@ -1,4 +1,5 @@
 def is_palindrome(word):
+    # Controleer of een woord een palindroom is
     return word == word[::-1]
 
 # Vraag de gebruiker om een woord in te voeren
