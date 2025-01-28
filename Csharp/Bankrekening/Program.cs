@@ -175,7 +175,7 @@ public class MainForm : Form
         BackColor = Color.White;
     }
 
-    private void StortenButton_Click(object sender, EventArgs e)
+    private void StortenButton_Click(object? sender, EventArgs e)
     {
         // Verwerk de storting
         try
@@ -191,7 +191,7 @@ public class MainForm : Form
         }
     }
 
-    private void OpnemenButton_Click(object sender, EventArgs e)
+    private void OpnemenButton_Click(object? sender, EventArgs e)
     {
         // Verwerk de opname
         try
@@ -207,7 +207,7 @@ public class MainForm : Form
         }
     }
 
-    private void TransactieGeschiedenisButton_Click(object sender, EventArgs e)
+    private void TransactieGeschiedenisButton_Click(object? sender, EventArgs e)
     {
         // Toon de transactiegeschiedenis
         var transactieGeschiedenis = mijnRekening.GetTransactieGeschiedenis();
@@ -224,19 +224,9 @@ public class MainForm : Form
 
 class Program
 {
+    [STAThread]
     static void Main()
     {
-        // Start de applicatie
-        var mijnRekening = new Bankrekening("NL01BANK0123456789", 1000);
-        mijnRekening.Storten(100.00m, "Initial deposit");
-        mijnRekening.Opnemen(50.00m, "ATM withdrawal");
-
-        Console.WriteLine("Transactiegeschiedenis:");
-        foreach (var transactie in mijnRekening.GetTransactieGeschiedenis())
-        {
-            Console.WriteLine($"{transactie.Datum}: {transactie.Beschrijving} - {transactie.Bedrag:C}");
-        }
-
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
         Application.Run(new MainForm());
