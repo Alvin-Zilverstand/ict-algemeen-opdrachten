@@ -16,39 +16,39 @@ class Program : Form
 
     public Program()
     {
-        // Initialize the random number to guess
+        // Initialiseer het te raden getal
         numberToGuess = random.Next(1, 101);
 
-        // Set up the form
+        // Stel het formulier in
         this.Text = "Gokspel";
         this.Size = new System.Drawing.Size(300, 200);
 
-        // Create and add the prompt label
+        // Maak en voeg het promptlabel toe
         Label promptLabel = new Label();
         promptLabel.Text = "Raad het getal tussen 1 en 100:";
         promptLabel.Location = new System.Drawing.Point(10, 20);
         promptLabel.AutoSize = true;
         this.Controls.Add(promptLabel);
 
-        // Create and add the input box
+        // Maak en voeg het invoervak toe
         inputBox = new TextBox();
         inputBox.Location = new System.Drawing.Point(10, 50);
         this.Controls.Add(inputBox);
 
-        // Create and add the guess button
+        // Maak en voeg de gokknop toe
         guessButton = new Button();
         guessButton.Text = "Gok";
         guessButton.Location = new System.Drawing.Point(10, 80);
         guessButton.Click += new EventHandler(GuessButton_Click);
         this.Controls.Add(guessButton);
 
-        // Create and add the result label
+        // Maak en voeg het resultaatlabel toe
         resultLabel = new Label();
         resultLabel.Location = new System.Drawing.Point(10, 110);
         resultLabel.AutoSize = true;
         this.Controls.Add(resultLabel);
 
-        // Create and add the restart button (initially hidden)
+        // Maak en voeg de herstartknop toe (aanvankelijk verborgen)
         restartButton = new Button();
         restartButton.Text = "Opnieuw";
         restartButton.Location = new System.Drawing.Point(10, 140);
@@ -56,7 +56,7 @@ class Program : Form
         restartButton.Visible = false;
         this.Controls.Add(restartButton);
 
-        // Set up the confetti timer
+        // Stel de confetti-timer in
         confettiTimer = new System.Windows.Forms.Timer();
         confettiTimer.Interval = 30;
         confettiTimer.Tick += new EventHandler(ConfettiTimer_Tick);
@@ -64,45 +64,46 @@ class Program : Form
 
     private void GuessButton_Click(object sender, EventArgs e)
     {
+        // Verwerk de gok van de gebruiker
         int userGuess;
         if (int.TryParse(inputBox.Text, out userGuess))
         {
             if (userGuess < numberToGuess)
             {
-                resultLabel.Text = "Too low! Try again.";
+                resultLabel.Text = "Te laag! Probeer opnieuw.";
             }
             else if (userGuess > numberToGuess)
             {
-                resultLabel.Text = "Too high! Try again.";
+                resultLabel.Text = "Te hoog! Probeer opnieuw.";
             }
             else
             {
-                resultLabel.Text = "Congratulations! You guessed the correct number.";
+                resultLabel.Text = "Gefeliciteerd! Je hebt het juiste getal geraden.";
                 StartConfetti();
-                restartButton.Visible = true; // Show the restart button
+                restartButton.Visible = true; // Toon de herstartknop
             }
         }
         else
         {
-            resultLabel.Text = "Invalid input. Please enter a number.";
+            resultLabel.Text = "Ongeldige invoer. Voer een getal in.";
         }
     }
 
     private void RestartButton_Click(object sender, EventArgs e)
     {
-        // Reset the game
+        // Reset het spel
         numberToGuess = random.Next(1, 101);
         resultLabel.Text = "";
         inputBox.Text = "";
         confettiList.Clear();
         confettiTimer.Stop();
-        restartButton.Visible = false; // Hide the restart button
+        restartButton.Visible = false; // Verberg de herstartknop
         this.Invalidate();
     }
 
     private void StartConfetti()
     {
-        // Initialize confetti
+        // Initialiseer confetti
         confettiList.Clear();
         for (int i = 0; i < 100; i++)
         {
@@ -113,7 +114,7 @@ class Program : Form
 
     private void ConfettiTimer_Tick(object sender, EventArgs e)
     {
-        // Update confetti positions
+        // Update de posities van de confetti
         for (int i = 0; i < confettiList.Count; i++)
         {
             confettiList[i].Update();
@@ -124,7 +125,7 @@ class Program : Form
     protected override void OnPaint(PaintEventArgs e)
     {
         base.OnPaint(e);
-        // Draw confetti
+        // Teken de confetti
         foreach (var confetti in confettiList)
         {
             e.Graphics.FillEllipse(new SolidBrush(confetti.Color), confetti.Position.X, confetti.Position.Y, confetti.Size, confetti.Size);
@@ -134,6 +135,7 @@ class Program : Form
     [STAThread]
     static void Main()
     {
+        // Start de applicatie
         Application.EnableVisualStyles();
         Application.Run(new Program());
     }
@@ -149,7 +151,7 @@ class Confetti
 
     public Confetti(Random random, Size clientSize)
     {
-        // Initialize confetti properties
+        // Initialiseer de eigenschappen van de confetti
         Position = new PointF(random.Next(clientSize.Width), random.Next(clientSize.Height));
         SpeedY = (float)(random.NextDouble() * 2 + 1);
         SpeedX = (float)(random.NextDouble() * 2 - 1);
@@ -159,8 +161,8 @@ class Confetti
 
     public void Update()
     {
-        // Update confetti position and apply gravity
+        // Update de positie van de confetti en pas zwaartekracht toe
         Position = new PointF(Position.X + SpeedX, Position.Y + SpeedY);
-        SpeedY += 0.1f; // gravity effect
+        SpeedY += 0.1f; // zwaartekracht effect
     }
 }

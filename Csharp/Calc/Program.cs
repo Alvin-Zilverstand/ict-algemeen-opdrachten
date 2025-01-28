@@ -4,21 +4,21 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Ask the user to enter the first number
-        Console.WriteLine("Enter the first number:");
+        // Vraag de gebruiker om het eerste getal in te voeren
+        Console.WriteLine("Voer het eerste getal in:");
         double num1 = Convert.ToDouble(Console.ReadLine());
 
-        // Ask the user to enter an operator (+, -, *, /)
-        Console.WriteLine("Enter an operator (+, -, *, /):");
+        // Vraag de gebruiker om een operator in te voeren (+, -, *, /)
+        Console.WriteLine("Voer een operator in (+, -, *, /):");
         string op = Console.ReadLine();
 
-        // Ask the user to enter the second number
-        Console.WriteLine("Enter the second number:");
+        // Vraag de gebruiker om het tweede getal in te voeren
+        Console.WriteLine("Voer het tweede getal in:");
         double num2 = Convert.ToDouble(Console.ReadLine());
 
         double result = 0;
 
-        // Perform the operation based on the entered operator
+        // Voer de bewerking uit op basis van de ingevoerde operator
         switch (op)
         {
             case "+":
@@ -37,18 +37,18 @@ class Program
                 }
                 else
                 {
-                    // Display an error message if attempting to divide by zero
-                    Console.WriteLine("Cannot divide by zero.");
+                    // Toon een foutmelding bij poging tot delen door nul
+                    Console.WriteLine("Kan niet delen door nul.");
                     return;
                 }
                 break;
             default:
-                // Display an error message if the entered operator is invalid
-                Console.WriteLine("Invalid operator.");
+                // Toon een foutmelding bij een ongeldige operator
+                Console.WriteLine("Ongeldige operator.");
                 return;
         }
 
-        // Display the result of the calculation
-        Console.WriteLine("The result is: " + result);
+        // Toon het resultaat van de berekening
+        Console.WriteLine("Het resultaat is: " + result);
     }
 }
