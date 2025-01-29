@@ -143,7 +143,7 @@ class Program : Form
 
 class Confetti
 {
-    public PointF Position;
+    public Point Position;
     public float SpeedY;
     public float SpeedX;
     public float Size;
@@ -152,7 +152,7 @@ class Confetti
     public Confetti(Random random, Size clientSize)
     {
         // Initialiseer de eigenschappen van de confetti
-        Position = new PointF(random.Next(clientSize.Width), random.Next(clientSize.Height));
+        Position = new Point(random.Next(clientSize.Width), random.Next(clientSize.Height));
         SpeedY = (float)(random.NextDouble() * 2 + 1);
         SpeedX = (float)(random.NextDouble() * 2 - 1);
         Size = random.Next(5, 10);
@@ -162,7 +162,7 @@ class Confetti
     public void Update()
     {
         // Update de positie van de confetti en pas zwaartekracht toe
-        Position = new PointF(Position.X + SpeedX, Position.Y + SpeedY);
+        Position = new Point((int)(Position.X + SpeedX), (int)(Position.Y + SpeedY));
         SpeedY += 0.1f; // zwaartekracht effect
     }
 }
