@@ -21,7 +21,7 @@ class Tee:
             f.close()
 
 def get_coordinates(city_name):
-    api_key = os.getenv('OPENWEATHERMAP_API_KEY', 'default_api_key')
+    api_key = 'cf2b92cba5cdb89baccb2fe05cacb3a5'
     base_url = 'http://api.openweathermap.org/geo/1.0/direct'
     params = {
         'q': city_name,
@@ -40,7 +40,7 @@ def get_coordinates(city_name):
         return None, None
 
 def get_weather(lat, lon, city_name):
-    api_key = os.getenv('OPENWEATHERMAP_API_KEY', 'default_api_key')
+    api_key = 'cf2b92cba5cdb89baccb2fe05cacb3a5'
     base_url = 'https://api.openweathermap.org/data/2.5/weather'
     params = {
         'lat': lat,
